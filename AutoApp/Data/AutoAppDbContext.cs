@@ -11,8 +11,7 @@ namespace AutoApp.Data
     public class AutoAppDbContext : DbContext
     {
         public DbSet<Car> Cars => Set<Car>();
-        public DbSet<ElectricCar> ElectricCar => Set<ElectricCar>();
-
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
