@@ -12,7 +12,7 @@ static void AddCar(IRepository<Car> carRepository)
     carRepository.Add(new Car { BrandName = "Skoda" });
     carRepository.Add(new Car { BrandName = "Volvo" });
     carRepository.Add(new Car { BrandName = "Mercedes" });
-    carRepository.Add(new Car { BrandName = "Mitsubishi" }) ;
+    carRepository.Add(new Car { BrandName = "Mitsubishi", TypeOfEngine = "ELECTRIC" }) ;
     carRepository.Save();
 }
 
