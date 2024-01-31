@@ -5,22 +5,15 @@ using AutoApp.Repositories;
 var sqlRepository = new SqlRepository<Car>(new AutoAppDbContext());
 
 AddCar(sqlRepository);
-AddEvCar(sqlRepository);
 WriteAllToConsole(sqlRepository);
 
 static void AddCar(IRepository<Car> carRepository)
 {
-    carRepository.Add(new Car { Name = "Skoda" });
-    carRepository.Add(new Car { Name = "Volvo" });
-    carRepository.Add(new Car { Name = "Mercedes" });
+    carRepository.Add(new Car { BrandName = "Skoda" });
+    carRepository.Add(new Car { BrandName = "Volvo" });
+    carRepository.Add(new Car { BrandName = "Mercedes" });
+    carRepository.Add(new Car { BrandName = "Mitsubishi" }) ;
     carRepository.Save();
-}
-
-static void AddEvCar(IWriteRepository<ElectricCar> evRepository)
-{
-    evRepository.Add(new ElectricCar { Name = "Tesla" });
-    evRepository.Add(new ElectricCar { Name = "Toyota" });
-    evRepository.Save();
 }
 
 static void WriteAllToConsole(IReadRepository<IEntity> repository)
