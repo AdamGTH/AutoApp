@@ -35,7 +35,7 @@ Console.WriteLine("|*-------------------THANK YOU FOR COMING--------------------
 
 static void AddCar(IRepository<Car> carRepository)
 {
-    Console.WriteLine("|*-------------------ADD CAR TO DATABASE--------------------*|");
+    Console.WriteLine("|*-------------------ADD CAR TO FILE--------------------*|");
     Console.WriteLine("BRAND: ");
     var name = Console.ReadLine();
     Console.WriteLine("TYPE OF FUEL: ");
