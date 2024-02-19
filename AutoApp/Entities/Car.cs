@@ -12,6 +12,6 @@ namespace AutoApp.Entities
         public string? BrandName { get; set; }
         public string? TypeOfEngine { get; set; }
 
-        public override string ToString() => $"Id: {Id}, Name: {BrandName}, Fuel: {TypeOfEngine}";
+        public override string ToString() => $"{Id} Marka: {BrandName}, Fuel: {TypeOfEngine}";
     }
 }
