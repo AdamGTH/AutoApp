@@ -44,6 +44,13 @@ namespace AutoApp.DataProviders
             return cars.FirstOrDefault(car => car.BrandName == name, new Car { Id = -1, BrandName = "NOT FOUND"});
         }
 
+        public List<Car> GetSpecificCarsForTypeOfDrive(string type)
+        {
+            var cars = _carRepository.GetAll();
+            var listCars = cars.Where(car => car.TypeOfDrive == type).ToList();
+            return listCars;
+        }
+        
         public List<Car> GetSpecificCarsForPrice(int minPrice, int maxPrice)
         {
             var cars = _carRepository.GetAll();

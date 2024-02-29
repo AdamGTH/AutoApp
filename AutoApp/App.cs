@@ -1,6 +1,8 @@
 ﻿using AutoApp.DataProviders;
 using AutoApp.Entities;
+using AutoApp.Events;
 using AutoApp.Repositories;
+using AutoApp.Repositories.Extensions;
 using AutoApp.UserCommunication;
 using System;
 using System.Collections.Generic;
@@ -14,17 +16,18 @@ namespace AutoApp
     {
         private readonly IRepository<Car> _carRepository;
         private readonly IUserCommunication _userCommunication;
-        
-        public App(IRepository<Car> carRepository, IUserCommunication userCommunication)
+        private readonly IEventsMethods _eventsMethods;
+        public App(IRepository<Car> carRepository, IUserCommunication userCommunication, IEventsMethods eventsMethods)
         {
             _carRepository = carRepository;
             _userCommunication = userCommunication;
+            _eventsMethods = eventsMethods;
         }
         public void Run()
         {
             _carRepository.GetAll();
-            _carRepository.ItemAdded += EventAdded;
-            _carRepository.ItemDeleted += EventDeleted;
+            _carRepository.ItemAdded += _eventsMethods.EventAdded;
+            _carRepository.ItemDeleted += _eventsMethods.EventDeleted;
 
             var num = "";
             Console.WriteLine("|*----------------------MAIN MENU---------------------*|");
@@ -61,26 +64,7 @@ namespace AutoApp
 
             Console.WriteLine("|*-------------------THANK YOU FOR COMING--------------------*|");
 
-          
-            void EventAdded(object? sender, Car e)
-            {
-                DateTime dateTime = DateTime.Now;
-                Console.WriteLine($"{e.BrandName} added from {sender.GetType().Name}");
-                using (var writer = File.AppendText("logs.txt"))
-                {
-                    writer.WriteLine($"[{dateTime}]-ItemAdded-[{e.BrandName}]");
-                }
-            }
-
-            void EventDeleted(object? sender, Car e)
-            {
-                DateTime dateTime = DateTime.Now;
-                Console.WriteLine($"{e.BrandName} deleted from {sender.GetType().Name}");
-                using (var writer = File.AppendText("logs.txt"))
-                {
-                    writer.WriteLine($"[{dateTime}]-ItemDeleted-[{e.BrandName}]");
-                }
-            }
+                     
         }
 
         

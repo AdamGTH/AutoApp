@@ -12,6 +12,7 @@ namespace AutoApp.DataProviders
         List<Car> GetSpecificCarsForPrice(int minPrice, int maxPrice);
         List<Car> GetSpecificCarsForBrand(string Brand);
         List<Car> GetSpecificCarsForColor(string color);
+        List<Car> GetSpecificCarsForTypeOfDrive(string type);
         List<Car> WhereStartsWith(string prefix);
         List<Car[]> ChunkCars(int size);
 

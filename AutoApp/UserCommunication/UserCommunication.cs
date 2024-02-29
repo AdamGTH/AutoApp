@@ -104,8 +104,7 @@ namespace AutoApp.UserCommunication
         {
             Console.WriteLine("Podaj typ napędu (2D lub 4D): ");
             var typeOfDrive = Console.ReadLine();
-            var cars = _carRepository.GetAll();
-            var listCars = cars.Where(car => car.TypeOfDrive == typeOfDrive);
+            var listCars = _carsProvider.GetSpecificCarsForTypeOfDrive(typeOfDrive);
             foreach(var car in listCars)
             {
                 Console.WriteLine(car);
