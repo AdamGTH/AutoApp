@@ -11,7 +11,20 @@ namespace AutoApp.Entities
     {
         public string? BrandName { get; set; }
         public string? TypeOfEngine { get; set; }
+        public int? Price { get; set; }
+        public string? TypeOfDrive { get; set; }
+        public string Color { get; set; }
 
-        public override string ToString() => $"{Id} Marka: {BrandName}, Fuel: {TypeOfEngine}";
+               
+        public override string ToString()
+        {
+            StringBuilder s = new (1024);
+
+            s.AppendLine($"Id:{Id},  Brand:{BrandName}");
+            s.AppendLine($"Type of engine: {TypeOfEngine},  Type of drive:{TypeOfDrive}");
+            s.AppendLine($"Color: {Color},  Price:{Price}");
+
+            return s.ToString();
+        }
     }
 }

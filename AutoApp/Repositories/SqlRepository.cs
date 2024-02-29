@@ -13,7 +13,7 @@ namespace AutoApp.Repositories
         private readonly DbSet<T> _dbSet;
         private readonly DbContext _dbContext;
         public event EventHandler<T> ItemAdded;
-        public event EventHandler<T> ItemRemoved;
+        public event EventHandler<T> ItemDeleted;
         public SqlRepository(DbContext dbContext)
         {
             _dbContext = dbContext;
@@ -38,7 +38,7 @@ namespace AutoApp.Repositories
         public void Remove(T item)
         {
             _dbSet.Remove(item);
-            ItemRemoved?.Invoke(this, item);
+            ItemDeleted?.Invoke(this, item);
         }
 
         public void Save()
