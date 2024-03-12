@@ -1,14 +1,15 @@
-﻿using AutoApp.DataProviders;
-using AutoApp.Entities;
+﻿using AutoApp.Data.Repositories;
+using AutoApp.Components.DataProviders;
 using AutoApp.Events;
-using AutoApp.Repositories;
-using AutoApp.Repositories.Extensions;
+using AutoApp.Data.Repositories.Extensions;
 using AutoApp.UserCommunication;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoApp.Data.Entities;
+using AutoApp.Data.UserCommunication;
 
 namespace AutoApp
 {
@@ -43,6 +44,12 @@ namespace AutoApp
                 Console.WriteLine("-6- FIND CAR FOR A TYPE OF DRIVE (2D OR 4D) ");
                 Console.WriteLine("-7- FIND CAR FOR A COLOR ");
                 Console.WriteLine("-8- FIND CAR FOR START LETTERS ");
+                Console.WriteLine("-9- READ DATA FROM CSV FILE ");
+                Console.WriteLine("-10- JOIN METHOD LINQ WITH CSV FILES ");
+                Console.WriteLine("-11- GROUP END JOIN METHOD ");
+                Console.WriteLine("-12- CREATE XML FILE ");
+                Console.WriteLine("-13- READ XML ");
+                Console.WriteLine("-14- XML TO HOME WORK ");
                 Console.WriteLine("-q- END ");
 
                 num = Console.ReadLine();
@@ -57,6 +64,12 @@ namespace AutoApp
                     case "6": _userCommunication.FindCarForTypeOfDrive(); break;
                     case "7": _userCommunication.FindCarForColor(); break;
                     case "8": _userCommunication.FindCarForStartLetters(); break;
+                    case "9": _userCommunication.FindCarFromCsvFile(); break;
+                    case "10": _userCommunication.JoinMethods(); break;
+                    case "11": _userCommunication.GroupJoinMethod(); break;
+                    case "12": _userCommunication.CreateXml(); break;
+                    case "13": _userCommunication.ReadXml(); break;
+                    case "14": _userCommunication.CreateXmlToHomeWork(); break;
                     case "q": break;
                     default: break;
                 }

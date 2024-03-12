@@ -1,10 +1,12 @@
 ﻿using AutoApp;
+using AutoApp.Components.CsvReader;
+using AutoApp.Components.DataProviders;
 using AutoApp.Data;
-using AutoApp.DataProviders;
-using AutoApp.Entities;
+using AutoApp.Data.Entities;
+using AutoApp.Data.Repositories;
+using AutoApp.Data.UserCommunication;
 using AutoApp.Events;
 using AutoApp.EventsMethods;
-using AutoApp.Repositories;
 using AutoApp.UserCommunication;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,6 +17,7 @@ services.AddSingleton<IRepository<Car>, RepositoryInFile<Car>>();
 services.AddSingleton<ICarsProvider, CarsProvider>();
 services.AddSingleton<IUserCommunication, UserCommunication>();
 services.AddSingleton<IEventsMethods, EventsMethods>();
+services.AddSingleton<ICsvReader, CsvReader>();
 
 var serviceProvider = services.BuildServiceProvider();
 var app = serviceProvider.GetService<IApp>();

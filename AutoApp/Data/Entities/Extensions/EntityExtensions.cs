@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using AutoApp.Data.Entities;
 
-namespace AutoApp.Entities.Extensions
+namespace AutoApp.Data.Entities.Extensions
 {
     public static class EntityExtensions
     {

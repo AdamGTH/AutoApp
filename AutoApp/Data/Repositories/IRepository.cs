@@ -1,13 +1,13 @@
-﻿using AutoApp.Entities;
+﻿using AutoApp.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutoApp.Repositories
+namespace AutoApp.Data.Repositories
 {
-    public interface IRepository<T> : IReadRepository<T>, IWriteRepository<T>  where T : class, IEntity
+    public interface IRepository<T> : IReadRepository<T>, IWriteRepository<T> where T : class, IEntity
     {
         public event EventHandler<T> ItemAdded;
         public event EventHandler<T> ItemDeleted;

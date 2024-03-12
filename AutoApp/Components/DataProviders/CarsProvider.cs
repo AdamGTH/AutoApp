@@ -1,5 +1,5 @@
-﻿using AutoApp.Entities;
-using AutoApp.Repositories;
+﻿using AutoApp.Data.Entities;
+using AutoApp.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace AutoApp.DataProviders
+namespace AutoApp.Components.DataProviders
 {
     public class CarsProvider : ICarsProvider
     {
@@ -29,7 +29,7 @@ namespace AutoApp.DataProviders
         public Car FirstByName(string name)
         {
             var cars = _carRepository.GetAll();
-            return cars.First(car=>car.BrandName == name);
+            return cars.First(car => car.BrandName == name);
         }
 
         public Car? FirstOrDefaultByName(string name)
@@ -41,7 +41,7 @@ namespace AutoApp.DataProviders
         public Car FirstOrDefaultByNameWithDefault(string name)
         {
             var cars = _carRepository.GetAll();
-            return cars.FirstOrDefault(car => car.BrandName == name, new Car { Id = -1, BrandName = "NOT FOUND"});
+            return cars.FirstOrDefault(car => car.BrandName == name, new Car { Id = -1, BrandName = "NOT FOUND" });
         }
 
         public List<Car> GetSpecificCarsForTypeOfDrive(string type)
@@ -50,11 +50,11 @@ namespace AutoApp.DataProviders
             var listCars = cars.Where(car => car.TypeOfDrive == type).ToList();
             return listCars;
         }
-        
+
         public List<Car> GetSpecificCarsForPrice(int minPrice, int maxPrice)
         {
             var cars = _carRepository.GetAll();
-            var specList = cars.Where(car=>car.Price > minPrice && car.Price < maxPrice).ToList();
+            var specList = cars.Where(car => car.Price > minPrice && car.Price < maxPrice).ToList();
             return specList;
         }
         public List<Car> GetSpecificCarsForBrand(string brand)
@@ -73,9 +73,11 @@ namespace AutoApp.DataProviders
         public List<Car> GetSpecificColumns()
         {
             var cars = _carRepository.GetAll();
-            var specList = cars.Select(car => new Car{
-            Id = car.Id,
-            BrandName = car.BrandName}).ToList();
+            var specList = cars.Select(car => new Car
+            {
+                Id = car.Id,
+                BrandName = car.BrandName
+            }).ToList();
 
             return specList;
         }
@@ -123,7 +125,7 @@ namespace AutoApp.DataProviders
         public List<Car> TakeCars(int howMany)
         {
             var cars = _carRepository.GetAll();
-            return cars.OrderBy(car=>car.BrandName).Take(howMany).ToList();
+            return cars.OrderBy(car => car.BrandName).Take(howMany).ToList();
         }
 
         public List<Car> TakeCars(Range howMany)
@@ -143,7 +145,7 @@ namespace AutoApp.DataProviders
         public List<Car> WhereStartsWith(string prefix)
         {
             var cars = _carRepository.GetAll();
-            return cars.Where(car=>car.BrandName.StartsWith(prefix)).ToList();
+            return cars.Where(car => car.BrandName.StartsWith(prefix)).ToList();
         }
 
         public List<Car> WhereStartsWithAndCostIsGreaterThan(string prefix, decimal cost)

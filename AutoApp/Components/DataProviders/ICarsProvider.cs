@@ -1,11 +1,11 @@
-﻿using AutoApp.Entities;
+﻿using AutoApp.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutoApp.DataProviders
+namespace AutoApp.Components.DataProviders
 {
     public interface ICarsProvider
     {

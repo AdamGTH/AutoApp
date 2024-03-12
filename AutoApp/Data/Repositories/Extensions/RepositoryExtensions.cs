@@ -1,7 +1,7 @@
-﻿
-using AutoApp.Entities;
+﻿using AutoApp.Data.Entities;
+using AutoApp.Data.Repositories;
 
-namespace AutoApp.Repositories.Extensions;
+namespace AutoApp.Data.Repositories.Extensions;
 public static class RepositoryExtensions
 {
     public static void AddBatch<T>(this IRepository<T> repository, T[] items) where T : class, IEntity
@@ -13,7 +13,7 @@ public static class RepositoryExtensions
         repository.Save();
     }
 
-    
+
 
 }
 

@@ -1,6 +1,6 @@
-﻿using AutoApp.Entities;
+﻿using AutoApp.Data.Entities;
 using AutoApp.Events;
-using AutoApp.Repositories;
+using AutoApp.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;

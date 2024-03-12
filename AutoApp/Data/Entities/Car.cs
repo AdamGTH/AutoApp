@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutoApp.Entities
+namespace AutoApp.Data.Entities
 {
     public class Car : CarBase
     {
@@ -15,10 +15,10 @@ namespace AutoApp.Entities
         public string? TypeOfDrive { get; set; }
         public string Color { get; set; }
 
-               
+
         public override string ToString()
         {
-            StringBuilder s = new (1024);
+            StringBuilder s = new(1024);
 
             s.AppendLine($"Id:{Id},  Brand:{BrandName}");
             s.AppendLine($"Type of engine: {TypeOfEngine},  Type of drive:{TypeOfDrive}");

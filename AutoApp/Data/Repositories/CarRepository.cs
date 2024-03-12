@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AutoApp.Entities;
+using AutoApp.Data.Entities;
 
-namespace AutoApp.Repositories
+namespace AutoApp.Data.Repositories
 {
     public class CarRepository
     {

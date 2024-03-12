@@ -1,9 +1,7 @@
-﻿
-
-using AutoApp.Entities;
+﻿using AutoApp.Data.Entities;
 using System.Text.Json;
 
-namespace AutoApp.Repositories;
+namespace AutoApp.Data.Repositories;
 
 public class RepositoryInFile<T> : IRepository<T> where T : class, IEntity
 {
@@ -26,20 +24,20 @@ public class RepositoryInFile<T> : IRepository<T> where T : class, IEntity
                 var line = reader.ReadLine();
                 items = JsonSerializer.Deserialize<List<T>>(line);
             }
-            
+
         }
         return items;
     }
 
     public T GetById(int id)
     {
-        return items[id-1];
+        return items[id - 1];
     }
 
     public void Remove(T item)
     {
-       items.RemoveAt(item.Id-1);
-       for(int i = 0; i < items.Count; i++)
+        items.RemoveAt(item.Id - 1);
+        for (int i = 0; i < items.Count; i++)
         {
             items[i].Id = i + 1;
         }

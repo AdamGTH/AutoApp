@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutoApp.Entities
+namespace AutoApp.Data.Entities
 {
     public abstract class CarBase : IEntity
     {
