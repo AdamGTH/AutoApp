@@ -15,20 +15,20 @@ namespace AutoApp.EventsMethods
         public void EventAdded(object? sender, Car e)
         {
             DateTime dateTime = DateTime.Now;
-            Console.WriteLine($"{e.BrandName} added from {sender.GetType().Name}");
+            Console.WriteLine($"{e.Manufacturer} added from {sender.GetType().Name}");
             using (var writer = File.AppendText("logs.txt"))
             {
-                writer.WriteLine($"[{dateTime}]-ItemAdded-[{e.BrandName}]");
+                writer.WriteLine($"[{dateTime}]-ItemAdded-[{e.Manufacturer}]");
             }
         }
 
         public void EventDeleted(object? sender, Car e)
         {
             DateTime dateTime = DateTime.Now;
-            Console.WriteLine($"{e.BrandName} deleted from {sender.GetType().Name}");
+            Console.WriteLine($"{e.Manufacturer} deleted from {sender.GetType().Name}");
             using (var writer = File.AppendText("logs.txt"))
             {
-                writer.WriteLine($"[{dateTime}]-ItemDeleted-[{e.BrandName}]");
+                writer.WriteLine($"[{dateTime}]-ItemDeleted-[{e.Manufacturer}]");
             }
         }
     }

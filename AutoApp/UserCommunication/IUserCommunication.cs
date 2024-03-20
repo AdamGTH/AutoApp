@@ -20,6 +20,8 @@ namespace AutoApp.Data.UserCommunication
         void FindCarForStartLetters();
         void FindCarFromCsvFile();
         void JoinMethods();
+        void ReadCarsFromCsvFileEndAddToDatabase();
+
 
         void GroupJoinMethod();
         void CreateXml();

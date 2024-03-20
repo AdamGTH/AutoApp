@@ -10,12 +10,11 @@ namespace AutoApp.Data
 {
     public class AutoAppDbContext : DbContext
     {
-        public DbSet<Car> Cars => Set<Car>();
-        
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public AutoAppDbContext(DbContextOptions<AutoAppDbContext> options) 
+            : base(options) 
         {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseInMemoryDatabase("StorageAppDb");
+
         }
+        public DbSet<Car> Cars { get; set; }
     }
 }
