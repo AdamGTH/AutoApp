@@ -31,5 +31,13 @@ namespace AutoApp.EventsMethods
                 writer.WriteLine($"[{dateTime}]-ItemDeleted-[{e.Manufacturer}]");
             }
         }
+        public void EventSaved(object? sender, Car e)
+        {
+            DateTime dateTime = DateTime.Now;
+            Console.WriteLine($"{dateTime} Saved Success !!!");
+          
+        }
+
+        
     }
 }

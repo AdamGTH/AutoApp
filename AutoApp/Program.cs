@@ -1,4 +1,5 @@
 ﻿using AutoApp;
+using AutoApp.Components;
 using AutoApp.Components.CsvReader;
 
 using AutoApp.Data;
@@ -14,17 +15,18 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 var services = new ServiceCollection();
+services.AddDbContext<AutoAppDbContext<Car>>(options => options
+.UseSqlServer("Data Source=DESKTOP-RPMRN2O\\SQLEXPRESS;Initial Catalog=AutoAppStorage;Integrated Security=True;TrustServerCertificate=True"));
 services.AddSingleton<IApp, App>();
-services.AddSingleton<IRepository<Car>, RepositoryInFile<Car>>();
+services.AddSingleton<IRepository<Car>, DbRepository<Car>>();
 services.AddSingleton<IUserCommunication, UserCommunication>();
 services.AddSingleton<IEventsMethods, EventsMethods>();
 services.AddSingleton<ICsvReader, CsvReader>();
-services.AddDbContext<AutoAppDbContext>(options => options
-.UseSqlServer("Data Source=DESKTOP-RPMRN2O\\SQLEXPRESS;Initial Catalog=AutoAppStorage;Integrated Security=True;TrustServerCertificate=True"));
+services.AddSingleton<IMenu, Menu>();
+
 
 var serviceProvider = services.BuildServiceProvider();
 var app = serviceProvider.GetService<IApp>();
 
 app.Run();
 
-//Data Source=DESKTOP-RPMRN2O\SQLEXPRESS;Initial Catalog=TestStorage;Integrated Security=True

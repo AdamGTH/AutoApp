@@ -11,5 +11,6 @@ namespace AutoApp.Data.Repositories
     {
         public IEnumerable<T> GetAll();
         public T GetById(int id);
+        public T GetByName(string id);
     }
 }

@@ -12,21 +12,11 @@ namespace AutoApp.Data.UserCommunication
     {
         void AddCar();
         void RemoveCar();
-        void ShowAllCars();
-        void FindCarForBrand();
-        void FindCarForPrice();
-        void FindCarForTypeOfDrive();
-        void FindCarForColor();
-        void FindCarForStartLetters();
-        void FindCarFromCsvFile();
-        void JoinMethods();
-        void ReadCarsFromCsvFileEndAddToDatabase();
+        void ReadAllCars();
+        void UpdateCar();
+        void ReadById();
+        void ReadCarsFromFileAndAddToDB();
 
-
-        void GroupJoinMethod();
-        void CreateXml();
-        void ReadXml();
-        void CreateXmlToHomeWork();
 
     }
 }

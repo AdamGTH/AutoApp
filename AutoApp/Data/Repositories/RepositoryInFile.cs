@@ -8,6 +8,8 @@ public class RepositoryInFile<T> : IRepository<T> where T : class, IEntity
     private List<T>? items = new List<T>();
     public event EventHandler<T> ItemAdded;
     public event EventHandler<T> ItemDeleted;
+    public event EventHandler<T> ItemSaved;
+
     public void Add(T item)
     {
         items.Add(item);
@@ -32,6 +34,11 @@ public class RepositoryInFile<T> : IRepository<T> where T : class, IEntity
     public T GetById(int id)
     {
         return items[id - 1];
+    }
+
+    public T GetByName(string id)
+    {
+        throw new NotImplementedException();
     }
 
     public void Remove(T item)

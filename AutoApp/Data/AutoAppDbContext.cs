@@ -8,13 +8,13 @@ using AutoApp.Data.Entities;
 
 namespace AutoApp.Data
 {
-    public class AutoAppDbContext : DbContext
+    public class AutoAppDbContext<T> : DbContext where T : class, IEntity
     {
-        public AutoAppDbContext(DbContextOptions<AutoAppDbContext> options) 
+        public AutoAppDbContext(DbContextOptions<AutoAppDbContext<T>> options) 
             : base(options) 
         {
 
         }
-        public DbSet<Car> Cars { get; set; }
+        public DbSet<T> Items { get; set; }
     }
 }

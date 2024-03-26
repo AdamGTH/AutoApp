@@ -11,6 +11,7 @@ namespace AutoApp.Events
     {
         void EventAdded(object? sender, Car e);
         void EventDeleted(object? sender, Car e);
+        void EventSaved(object? sender, Car e);
 
     }
 }

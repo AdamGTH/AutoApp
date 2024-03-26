@@ -9,5 +9,6 @@ namespace AutoApp.Data.Entities
     public abstract class CarBase : IEntity
     {
         public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

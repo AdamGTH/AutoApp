@@ -8,42 +8,49 @@ using System.Threading.Tasks;
 
 namespace AutoApp.Data.Repositories
 {
-    public class SqlRepository<T> : IRepository<T> where T : class, IEntity, new()
+    public class DbRepository<T> : IRepository<T> where T : class, IEntity, new()
     {
-        private readonly DbSet<T> _dbSet;
-        private readonly DbContext _dbContext;
+        private readonly AutoAppDbContext<T> _dbContext;
+        
         public event EventHandler<T> ItemAdded;
         public event EventHandler<T> ItemDeleted;
-        public SqlRepository(DbContext dbContext)
+        public event EventHandler<T> ItemSaved;
+        public DbRepository(AutoAppDbContext<T> dbContext)
         {
             _dbContext = dbContext;
-            _dbSet = _dbContext.Set<T>();
+            _dbContext.Database.EnsureCreated();
+            
         }
 
+        public T? GetByName(string name)
+        {
+            return _dbContext.Items.FirstOrDefault(x => x.Name == name);
+        }
         public T? GetById(int id)
         {
-            return _dbSet.Find(id);
+            return _dbContext.Items.Find(id);
         }
 
         public IEnumerable<T> GetAll()
         {
-            return _dbSet.OrderBy(item => item.Id).ToList();
+            return _dbContext.Items.ToList();
         }
         public void Add(T item)
         {
-            _dbSet.Add(item);
+            _dbContext.Items.Add(item);
             ItemAdded?.Invoke(this, item);
         }
 
         public void Remove(T item)
         {
-            _dbSet.Remove(item);
+            _dbContext.Items.Remove(item);
             ItemDeleted?.Invoke(this, item);
         }
 
         public void Save()
         {
             _dbContext.SaveChanges();
+            ItemSaved?.Invoke(this, new());
         }
     }
 }
