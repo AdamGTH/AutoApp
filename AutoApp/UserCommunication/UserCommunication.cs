@@ -3,16 +3,6 @@ using AutoApp.Components.CsvReader;
 using AutoApp.Data.Entities;
 using AutoApp.Data.Repositories;
 using AutoApp.Data.UserCommunication;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
-using System.Xml.Linq;
-using System.Net.Sockets;
-using AutoApp.Data;
 using AutoApp.Components;
 
 namespace AutoApp.UserCommunication

@@ -1,16 +1,7 @@
 ﻿using AutoApp.Data.Repositories;
-
 using AutoApp.Events;
-using AutoApp.Data.Repositories.Extensions;
-using AutoApp.UserCommunication;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoApp.Data.Entities;
 using AutoApp.Data.UserCommunication;
-using AutoApp.Data;
 using AutoApp.Components;
 
 namespace AutoApp

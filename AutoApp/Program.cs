@@ -1,7 +1,6 @@
 ﻿using AutoApp;
 using AutoApp.Components;
 using AutoApp.Components.CsvReader;
-
 using AutoApp.Data;
 using AutoApp.Data.Entities;
 using AutoApp.Data.Repositories;
@@ -11,7 +10,7 @@ using AutoApp.EventsMethods;
 using AutoApp.UserCommunication;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 
 var services = new ServiceCollection();
