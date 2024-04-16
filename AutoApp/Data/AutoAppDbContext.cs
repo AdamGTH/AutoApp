@@ -12,6 +12,6 @@ namespace AutoApp.Data
         {
 
         }
-        public DbSet<Car> Cars => Set<Car>();
+        public DbSet<Car> Cars { get; set; }
     }
 }
