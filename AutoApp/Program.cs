@@ -14,8 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 
 var services = new ServiceCollection();
-services.AddDbContext<AutoAppDbContext<Car>>(options => options
-.UseSqlServer("Data Source=DESKTOP-RPMRN2O\\SQLEXPRESS;Initial Catalog=AutoAppStorage;Integrated Security=True;TrustServerCertificate=True"));
+services.AddDbContext<AutoAppDbContext>(options => options
+.UseSqlServer("Data Source=DESKTOP-RPMRN2O\\SQLEXPRESS;Initial Catalog=StorageAutoApp;Integrated Security=True;TrustServerCertificate=True"));
 services.AddSingleton<IApp, App>();
 services.AddSingleton<IRepository<Car>, DbRepository<Car>>();
 services.AddSingleton<IUserCommunication, UserCommunication>();

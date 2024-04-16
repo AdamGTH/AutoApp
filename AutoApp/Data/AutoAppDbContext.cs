@@ -5,13 +5,13 @@ using AutoApp.Data.Entities;
 
 namespace AutoApp.Data
 {
-    public class AutoAppDbContext<T> : DbContext where T : class, IEntity
+    public class AutoAppDbContext : DbContext
     {
-        public AutoAppDbContext(DbContextOptions<AutoAppDbContext<T>> options) 
+        public AutoAppDbContext(DbContextOptions<AutoAppDbContext> options) 
             : base(options) 
         {
 
         }
-        public DbSet<T> Items { get; set; }
+        public DbSet<Car> Cars => Set<Car>();
     }
 }

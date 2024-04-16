@@ -1,49 +1,45 @@
 ﻿using AutoApp.Data.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutoApp.Data.Repositories
 {
     public class DbRepository<T> : IRepository<T> where T : class, IEntity, new()
     {
-        private readonly AutoAppDbContext<T> _dbContext;
+        private readonly AutoAppDbContext _dbContext;
+        private readonly DbSet<T> _dbSet;
         
         public event EventHandler<T> ItemAdded;
         public event EventHandler<T> ItemDeleted;
         public event EventHandler<T> ItemSaved;
-        public DbRepository(AutoAppDbContext<T> dbContext)
+        public DbRepository(AutoAppDbContext dbContext)
         {
             _dbContext = dbContext;
             _dbContext.Database.EnsureCreated();
-            
-        }
+            _dbSet = _dbContext.Set<T>();
+         }
 
         public T? GetByName(string name)
         {
-            return _dbContext.Items.FirstOrDefault(x => x.Name == name);
+            return _dbSet.FirstOrDefault(x => x.Name == name);
         }
         public T? GetById(int id)
         {
-            return _dbContext.Items.Find(id);
+            return _dbSet.Find(id);
         }
 
         public IEnumerable<T> GetAll()
         {
-            return _dbContext.Items.ToList();
+            return _dbSet.ToList();
         }
         public void Add(T item)
         {
-            _dbContext.Items.Add(item);
+            _dbSet.Add(item);
             ItemAdded?.Invoke(this, item);
         }
 
         public void Remove(T item)
         {
-            _dbContext.Items.Remove(item);
+            _dbSet.Remove(item);
             ItemDeleted?.Invoke(this, item);
         }
 
