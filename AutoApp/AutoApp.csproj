@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="AplicationServices\Components\DataProviders\**" />
+    <EmbeddedResource Remove="AplicationServices\Components\DataProviders\**" />
+    <None Remove="AplicationServices\Components\DataProviders\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Figgle" Version="0.5.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.17" />
@@ -15,14 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Resources\Files\fuel.csv">
+    <None Update="DataAccess\Resources\Files\fuel.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\Files\manufacturers.csv">
+    <None Update="DataAccess\Resources\Files\manufacturers.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

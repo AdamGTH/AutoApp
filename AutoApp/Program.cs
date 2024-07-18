@@ -1,13 +1,12 @@
-﻿using AutoApp;
-using AutoApp.Components;
-using AutoApp.Components.CsvReader;
-using AutoApp.Data;
-using AutoApp.Data.Entities;
-using AutoApp.Data.Repositories;
-using AutoApp.Data.UserCommunication;
-using AutoApp.Events;
-using AutoApp.EventsMethods;
-using AutoApp.UserCommunication;
+﻿using AutoApp.AplicationServices.Components;
+using AutoApp.AplicationServices.Components.CsvReader;
+using AutoApp.DataAccess.Data;
+using AutoApp.DataAccess.Data.Entities;
+using AutoApp.DataAccess.Data.Repositories;
+using AutoApp.UI;
+using AutoApp.UI.EventsMethods;
+using AutoApp.UI.UserCommunication;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
